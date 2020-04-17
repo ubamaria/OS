@@ -16,7 +16,19 @@ public class Process {
 					thread.add(new Thread((i + 1) + " thread", 8 * i + 1,priority, id));
 					this.max_time += thread.get(i).getmax_time();
 				}
-			}		
+			}
+			public void priority_sort() {
+				for (int i = thread.size() - 1; i > 0; i--) {
+					for (int j = 0; j < i; j++) {
+						if (thread.get(j).getpriority() < thread.get(j + 1)
+								.getpriority()) {
+							Thread tmp = thread.get(j);
+							thread.set(j, thread.get(j + 1));
+							thread.set(j + 1, tmp);
+						}
+					}
+				}
+			}
 			public int getmax_time() {
 				return max_time;
 			}		
@@ -34,6 +46,7 @@ public class Process {
 			}
 			public static final int quant = 5;		
 			public void startThread(int q) {
+				priority_sort();
 				while (!thread.isEmpty()) {
 					for (int i = 0; i < thread.size(); i++) {
 						q = quant;
@@ -55,6 +68,12 @@ public class Process {
 							}
 						}
 					}
+				}
+			}
+			public void print() {
+				for (Thread t : thread) {
+					System.out.println(t.getpid() + " " + t.getId() + " priority: "
+							+ t.getpriority() + " max_time: " + t.getmax_time());
 				}
 			}
 			

@@ -9,7 +9,9 @@ public class Thread {
 		this.pid = p;
 		this.priorTh=priorTh;
 		this.max_time = max_time;
-	}		
+	}
+	
+
 	public int getmax_time() {
 		return max_time;
 	}		
