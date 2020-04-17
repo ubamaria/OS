@@ -13,7 +13,7 @@ public class Process {
 				Random randomNumber = new Random();
 				thread = new ArrayList<>();
 				for (int i = 0; i < randomNumber.nextInt(5) + 1; i++) {
-					thread.add(new Thread((i + 1) + " thread", 8 * i + 1, id));
+					thread.add(new Thread((i + 1) + " thread", 8 * i + 1,priority, id));
 					this.max_time += thread.get(i).getmax_time();
 				}
 			}		
