@@ -9,7 +9,7 @@ public class File {
 		this.fileSize = fileSize;
 	}
 	public Knot getKnot() {
-		return knots.nextKnot();
+		return knots.getNextKnot();
 	}
 	
 	public int getId() {
