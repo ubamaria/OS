@@ -1,7 +1,7 @@
 package laba4_done;
 
 public class File {
-	private IndexKnot knot;
+	private Knot knot;
 
 	public File(IndexKnot knot){
 		this.knot = knot;
